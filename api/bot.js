@@ -6,14 +6,16 @@ const app = express();
 app.use(express.json());
 
 // Constants for API URLs
-const TELEGRAM_API_URL = `https://api.telegram.org/bot7783278698:AAEvfYlaUVbseYYXCPVxJPhgbiWnclxaeiU`;
-const WEB_APP_URL = "https://demo-gamma-blond.vercel.app";
+const TELEGRAM_API_URL = `https://api.telegram.org/botYOUR_BOT_TOKEN_HERE`;
+const WEB_APP_URL = "https://your-web-app-url.com";
 
 app.post('/api/bot', async (req, res) => {
     console.log('Received update:', JSON.stringify(req.body));
     const message = req.body.message;
 
+    // Check if the message exists and is a /start command
     if (message && message.text === "/start") {
+        // Customize this welcome message for your bot
         const responseText = `
 🚀 *Welcome to Your Amazing Bot!* 🚀
 
